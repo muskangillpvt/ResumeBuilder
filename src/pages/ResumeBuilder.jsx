@@ -9,6 +9,7 @@ import EducationSection from "../components/builder/EducationSection";
 import ProjectSection from "../components/builder/ProjectSection";
 import SkillsSection from "../components/builder/SkillsSection";
 import TemplateSelector from "../components/builder/TemplateSelector";
+import DownloadResume from "../components/builder/DownloadResume";
 
 function ResumeBuilder(){
     const navigate = useNavigate();
@@ -47,7 +48,7 @@ function ResumeBuilder(){
                     <PersonalInfoForm resumeData={resumeData} setResumeData={setResumeData} />
                 </div> */}
                 <div className="col-span-5 bg-white rounded-xl shadow p-6">
-                    <ProgressIndicator step={currentStep}  totalSteps={7} />
+                    <ProgressIndicator step={currentStep}  totalSteps={8} />
                     {currentStep ===1 &&(
                         <PersonalInfoForm resumeData={resumeData}
                         setResumeData={setResumeData} 
@@ -87,12 +88,15 @@ function ResumeBuilder(){
                         <TemplateSelector
                             selectedTemplate={selectedTemplate}
                             setSelectedTemplate={setSelectedTemplate}
-                            onNext={() => navigate("/app")}
+                            onNext={() => setCurrentstep(8)}
                         />
+                    )}
+                    {currentStep === 8 && (
+                        <DownloadResume />
                     )}
                 </div>
                 {/* Right form */}
-                <div className="col-span-7 bg-white rounded-xl shadow p-6">
+                <div id="resume-preview" className="col-span-7 bg-white rounded-xl shadow p-6">
                     <ResumePreview resumeData={resumeData}  selectedTemplate={selectedTemplate} />
                 </div>
             </div>
