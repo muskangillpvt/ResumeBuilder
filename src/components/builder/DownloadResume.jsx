@@ -8,10 +8,17 @@ function DownloadResume(){
             margin: 0.5,
             filename: "myresume.pdf",
             image: { type: "jpeg", quality: 0.98 },
-            html2canvas: { scale: 2 },
-            jsPDF: { unit: "in", format: "a4", orientation: "portrait" },
+            html2canvas: { scale: 2, useCORS: true, scrollX: 0, scrollY: 0 },
+            jsPDF: {
+                unit: "px",
+                format: [794, 1123],  // exact A4 pixel size
+                orientation: "portrait", 
+            },
         };
-        html2pdf().set(options).from(element).save();
+        html2pdf().set(options).from(element).save().then(() => {
+            element.classList.remove("pdf-mode");
+        });
+
     };
     return(
         <div className="text-center">

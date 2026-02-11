@@ -3,47 +3,47 @@ import { Mail, Phone, MapPin, Globe } from "lucide-react";
 
 function ClassicTemplate({ resumeData }) {
   return (
-    <div className="flex bg-white shadow rounded-md overflow-hidden text-sm">
-
+    <div className="flex bg-white shadow rounded-md overflow-hidden text-sm modern-template">
+      
       {/* LEFT SIDEBAR */}
       <div className="w-[30%] bg-gray-100 p-5">
         
         {/* CONTACT */}
         <div className="mb-6">
-        <h3 className="text-xs font-semibold tracking-widest text-gray-500 mb-2">
+          <h3 className="text-xs font-semibold tracking-widest text-gray-500 mb-2">
             CONTACT
-        </h3>
+          </h3>
 
-        <div className="space-y-2 text-gray-700 text-xs">
+          <div className="space-y-2 text-gray-700 text-xs">
+            
             {resumeData.phone && (
-            <div className="flex items-start gap-2">
+              <div className="flex items-start gap-2">
                 <Phone size={14} className="mt-[2px]" />
                 <span>{resumeData.phone}</span>
-            </div>
+              </div>
             )}
 
             {resumeData.email && (
-            <div className="flex items-start gap-2 break-all">
+              <div className="flex items-start gap-2 break-all">
                 <Mail size={14} className="mt-[2px]" />
                 <span>{resumeData.email}</span>
-            </div>
+              </div>
             )}
 
             {resumeData.location && (
-            <div className="flex items-start gap-2">
+              <div className="flex items-start gap-2">
                 <MapPin size={14} className="mt-[2px]" />
                 <span>{resumeData.location}</span>
-            </div>
+              </div>
             )}
 
             {resumeData.website && (
-            <div className="flex items-start gap-2 break-all">
+              <div className="flex items-start gap-2 break-all">
                 <Globe size={14} className="mt-[2px]" />
                 <span>{resumeData.website}</span>
-            </div>
+              </div>
             )}
-        </div>
-
+          </div>
         </div>
 
         {/* EDUCATION */}
@@ -52,7 +52,7 @@ function ClassicTemplate({ resumeData }) {
             EDUCATION
           </h3>
 
-          {resumeData.education.map((edu, index) => (
+          {resumeData.education?.map((edu, index) => (
             <div key={index} className="mb-3">
               <p className="font-semibold">{edu.degree}</p>
               <p className="text-gray-600 text-xs">
@@ -64,31 +64,31 @@ function ClassicTemplate({ resumeData }) {
             </div>
           ))}
         </div>
+
         {/* SKILLS */}
         {resumeData.skills?.length > 0 && (
-        <div className="mt-6">
+          <div className="mt-6">
             <h3 className="text-xs font-semibold tracking-widest text-gray-500 mb-2">
-            SKILLS
+              SKILLS
             </h3>
 
             <div className="flex flex-wrap gap-2">
-            {resumeData.skills.map((skill, index) => (
+              {resumeData.skills.map((skill, index) => (
                 <span
-                key={index}
-                className="bg-white text-gray-700 px-3 py-1 rounded-full text-xs"
+                  key={index}
+                  className="bg-white text-gray-700 px-3 py-1 rounded-full text-xs"
                 >
-                {skill}
+                  {skill}
                 </span>
-            ))}
+              ))}
             </div>
-        </div>
+          </div>
         )}
-
       </div>
-
 
       {/* RIGHT CONTENT */}
       <div className="w-[70%] p-6">
+        
         {/* HEADER */}
         <div className="mb-4">
           <h1 className="text-2xl font-bold text-gray-800">
@@ -110,7 +110,7 @@ function ClassicTemplate({ resumeData }) {
         )}
 
         {/* EXPERIENCE */}
-        {resumeData.experiences.length > 0 && (
+        {resumeData.experiences?.length > 0 && (
           <div className="mb-5">
             <h2 className="font-semibold mb-3">EXPERIENCE</h2>
 
@@ -131,7 +131,7 @@ function ClassicTemplate({ resumeData }) {
         )}
 
         {/* PROJECTS */}
-        {resumeData.projects.length > 0 && (
+        {resumeData.projects?.length > 0 && (
           <div>
             <h2 className="font-semibold mb-3">PROJECTS</h2>
 
@@ -144,6 +144,7 @@ function ClassicTemplate({ resumeData }) {
           </div>
         )}
       </div>
+
     </div>
   );
 }

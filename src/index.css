@@ -11,3 +11,19 @@
   background: white !important;
   border-color: black !important;
 }
+
+.pdf-mode {
+  width: 794px !important;   /* A4 width in pixels */
+  max-width: 794px !important;
+}
+
+.pdf-mode * {
+  overflow: visible !important;
+}
+
+.pdf-mode .modern-template {
+  width: 100% !important;
+}
+.pdf-layout {
+  display: block !important;
+}
