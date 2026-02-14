@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
-
+@import "@fontsource/outfit";
 @import "tailwindcss";
 
 *{
@@ -12,18 +11,24 @@
   border-color: black !important;
 }
 
+
 .pdf-mode {
-  width: 794px !important;   /* A4 width in pixels */
-  max-width: 794px !important;
+  width: 210mm !important;
+  min-height: 297mm !important;
+  padding: 20mm !important;
+  box-sizing: border-box !important;
 }
 
 .pdf-mode * {
+  line-height: 1.5 !important;
   overflow: visible !important;
 }
 
-.pdf-mode .modern-template {
-  width: 100% !important;
-}
-.pdf-layout {
-  display: block !important;
+.pdf-mode h1,
+.pdf-mode h2,
+.pdf-mode h3,
+.pdf-mode p,
+.pdf-mode span,
+.pdf-mode div {
+  line-height: 1.5 !important;
 }

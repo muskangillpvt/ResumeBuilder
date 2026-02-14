@@ -1,25 +1,34 @@
 import html2pdf from "html2pdf.js";
 
 function DownloadResume(){
-    const handleDownload=()=>{
+    const handleDownload = async () => {
         const element = document.getElementById("resume-preview");
+        if (!element) return;
+
         element.classList.add("pdf-mode");
+
         const options = {
-            margin: 0.5,
+            margin: 0,
             filename: "myresume.pdf",
-            image: { type: "jpeg", quality: 0.98 },
-            html2canvas: { scale: 2, useCORS: true, scrollX: 0, scrollY: 0 },
+            image: { type: "jpeg", quality: 1 },
+            html2canvas: {
+                scale: 2,
+                useCORS: true,
+                letterRendering: true,
+                logging: false
+            },
             jsPDF: {
-                unit: "px",
-                format: [794, 1123],  // exact A4 pixel size
-                orientation: "portrait", 
+                unit: "mm",
+                format: "a4",
+                orientation: "portrait",
             },
         };
-        html2pdf().set(options).from(element).save().then(() => {
-            element.classList.remove("pdf-mode");
-        });
 
+        await html2pdf().set(options).from(element).save();
+
+        element.classList.remove("pdf-mode");
     };
+
     return(
         <div className="text-center">
             <h2 className="text-xl font-semibold mb-4">Download Your Resume</h2>

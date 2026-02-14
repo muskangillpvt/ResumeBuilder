@@ -11,7 +11,7 @@ function ResumePreview({ resumeData, selectedTemplate }){
         return <MinimalTemplate resumeData={resumeData} />;
     }
     return(
-        <div className="p-6 bg-white rounded-md">
+        <div id="resume-preview" className="p-6 bg-white rounded-md">
             <h1 className="text-2xl font-bold text-blue-600 text-center">
                 {resumeData.fullName || "Your Name"}
             </h1>
